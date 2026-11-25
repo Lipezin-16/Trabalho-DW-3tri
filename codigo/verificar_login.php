@@ -33,6 +33,9 @@
         }
     }
     else {
-        header("Location: index.php?erro=login&email=$email");
-    }
+    echo "<script>
+        alert('Email ou senha incorretos!');
+        window.location.href = 'index.php';
+    </script>";
+}
 ?>
