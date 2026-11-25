@@ -86,9 +86,6 @@ include("conexao.php");
 
 <br>
 
-<a href="principal.php">
-    <button>Voltar para página principal</button>
-</a>
 
 </body>
 </html>
