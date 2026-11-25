@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['funcao']) || $_SESSION['funcao'] != 1) {
+    header("Location: index.php");
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +14,10 @@
     <title>Document</title>
 </head>
 <body>
-    so texte ate agora
+    <h1>Area do Garçon</h1>
+    <br>
+    <a href="list-pedido">listar pedidos</a>
+    <br> <br>
+    <a href="cad-pedido.php">Cadastro de pedidos</a>
 </body>
 </html>
