@@ -12,50 +12,42 @@
     require_once "conexao.php";
 
     $sql = "SELECT * FROM Pedido";
-    $resultado = $conexao->query($sql);
+    $comando = mysqli_prepare($conexao, $sql);
+    mysqli_stmt_execute($comando);
+    $resultado = mysqli_stmt_get_result($comando);
 
     $sql2 = "SELECT * FROM Pizza";
-    $resultado2 = $conexao->query($sql2);
+    $comando2 = mysqli_prepare($conexao, $sql2);
+    mysqli_stmt_execute($comando2);
+    $resultado2 = mysqli_stmt_get_result($comando2);
     ?>
 
-    <form action="salvar_itens_pedido.php" method="POST">
+    <form action="salvar_itens.php" method="POST">
 
-        <label>Escolha o pedido:</label>
-        <select name="id_pedido" required>
-            <option value="">Selecione</option>
-
-            <?php
-            while ($linha = $resultado->fetch_assoc()) {
-            ?>
+        Pedido:
+        <select name="id_pedido">
+            <?php while ($linha = mysqli_fetch_assoc($resultado)) { ?>
                 <option value="<?php echo $linha['id_pedido']; ?>">
                     <?php echo $linha['id_pedido']; ?>
                 </option>
-            <?php
-            }
-            ?>
+            <?php } ?>
         </select>
 
         <br><br>
 
-        <label>Escolha a pizza:</label>
-        <select name="id_pizza" required>
-            <option value="">Selecione</option>
-
-            <?php
-            while ($linha = $resultado2->fetch_assoc()) {
-            ?>
+        Pizza:
+        <select name="id_pizza">
+            <?php while ($linha = mysqli_fetch_assoc($resultado2)) { ?>
                 <option value="<?php echo $linha['id_pizza']; ?>">
                     <?php echo $linha['nome']; ?>
                 </option>
-            <?php
-            }
-            ?>
+            <?php } ?>
         </select>
 
         <br><br>
 
-        <label>Quantidade:</label>
-        <input type="number" name="quantidade" min="1" required>
+        Quantidade:
+        <input type="number" name="quantidade">
 
         <br><br>
 
