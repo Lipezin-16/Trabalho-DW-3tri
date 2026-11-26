@@ -12,6 +12,6 @@
     mysqli_stmt_bind_param($comando, "iii", $id_pedido, $id_pizza, $quantidade);
     mysqli_stmt_execute($comando);
 
-    echo "Pedido salvo com sucesso!";
+    echo "Pedido concluido";
 ?>
 
