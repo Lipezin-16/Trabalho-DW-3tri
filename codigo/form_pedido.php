@@ -11,7 +11,7 @@
 <h1>Cadastrar Pedido</h1>
 
 <?php
-include("conexao.php");
+require_once("conexao.php");
 ?>
 
 <div class="caixa">

@@ -1,7 +1,7 @@
 
 <?php
 
-include("conexao.php");
+require_once("conexao.php");
 
 $nome_cliente = $_POST['nome_cliente'];
 $cpf_cliente = $_POST['cpf_cliente'];
