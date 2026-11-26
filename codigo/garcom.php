@@ -3,7 +3,6 @@ session_start();
 
 if (!isset($_SESSION['funcao']) || $_SESSION['funcao'] != 1) {
     header("Location: index.php");
-    exit;
 }
 ?>
 <!DOCTYPE html>
