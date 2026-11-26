@@ -1,9 +1,7 @@
 <?php
 session_start();
-
 if (!isset($_SESSION['funcao']) || $_SESSION['funcao'] != 0) {
     header("Location: index.php");
-
 }
 ?>
 
